@@ -7,6 +7,10 @@ class Tags(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "Tags"
+        verbose_name = "Tag"
+
 
 class Task(models.Model):
     content = models.TextField()
