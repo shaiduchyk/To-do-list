@@ -28,7 +28,6 @@ def index(request: HttpRequest) -> HttpResponse:
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
     form_class = TaskCreationForm
-    template_name = "create_task.html"
     success_url = reverse_lazy("todo:task-list")
 
 
@@ -49,7 +48,6 @@ class TaskDetailView(LoginRequiredMixin, generic.DetailView):
 class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Task
     form_class = TaskCreationForm
-    template_name = "task_form.html"
     success_url = reverse_lazy("todo:task-list")
 
 
@@ -61,9 +59,7 @@ class TagCreateView(LoginRequiredMixin, generic.CreateView):
 
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
-    context_object_name = "tag_list"
     paginate_by = 7
-    template_name = "tags_list.html"
 
 
 class TagUpdateView(LoginRequiredMixin, generic.UpdateView):
