@@ -8,18 +8,24 @@
 
   <h3 class="mb-3">Tasks associated with "{{ tags.name }}" tag:</h3>
 
-  {% if tags.task.all %}
+  {% if tags.tasks.all %}
     <ul>
-      {% for task in tag.tasks.all %}
+      {% for task in tags.tasks.all %}
         <li>
-          <a href="{% url 'todo:task-detail' pk=task.id %}">
-            <strong>{{ task.content }}</strong>
-          </a>
+          <strong>{{ task.content }}</strong>
+          {% if task.deadline %}
+            <span class="text-muted">Deadline: {{ task.deadline }}</span>
+          {% endif %}
+          {% if task.is_completed %}
+            <span class="badge badge-success">Completed</span>
+          {% else %}
+            <span class="badge badge-warning">In Progress</span>
+          {% endif %}
         </li>
       {% endfor %}
     </ul>
   {% else %}
     <p>No tasks are associated with this tag.</p>
   {% endif %}
-  
+
 {% endblock %}

@@ -1,5 +1,3 @@
-from datetime import timezone
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
@@ -41,6 +39,7 @@ class TaskDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TaskListView(LoginRequiredMixin, generic.ListView):
     model = Task
+    paginate_by = 7
 
 
 class TaskDetailView(LoginRequiredMixin, generic.DetailView):
@@ -63,6 +62,7 @@ class TagCreateView(LoginRequiredMixin, generic.CreateView):
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tags
     context_object_name = "tag_list"
+    paginate_by = 7
     template_name = "tags_list.html"
 
 
