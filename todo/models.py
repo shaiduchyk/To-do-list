@@ -23,4 +23,4 @@ class Task(models.Model):
                 f" Completed: {self.is_completed}")
 
     class Meta:
-        ordering = ["-done_at", "-created_at"]
+        ordering = ["done_at", "-created_at"]
