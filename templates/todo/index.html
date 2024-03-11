@@ -3,30 +3,31 @@
 
 {% block content %}
   <div class="container mt-5">
-    <div class="row align-items-center">
+    <div class="row align-items-center justify-content-center">
 
-      <div class="col-md-6">
-        <div class="text-center">
-          <h2 class="mb-4">Welcome, {{ user.get_username }}!</h2>
-
-          <p class="mb-3">Thank you for using our To-Do list. Here's a summary of your tasks:</p>
-
-          <ul class="list-unstyled">
-            <li class="mb-2">Total tasks: {{ all_tasks_count }}</li>
-            <li class="mb-2">Completed tasks: {{ completed_tasks_count }}</li>
-            <li class="mb-4">Incomplete tasks: {{ incompleted_tasks_count }}</li>
-          </ul>
-
-          <p class="mb-4">
-            Our To-Do list app is designed to help you manage your tasks efficiently. Explore your user
-            profile to view and organize your tasks. Feel free to add, edit, and mark tasks as complete to stay organized.
-          </p>
-
-          <p>
-            If you have any feedback or suggestions, please don't hesitate to reach out. We appreciate your use of
-            our platform and hope it enhances your productivity!
-          </p>
+      <div class="col-md-6 text-center">
+        <div class="col-md-6 mx-auto">
+          <img src="{% static 'todo.jpg' %}" class="img-fluid" alt="Welcome Image">
         </div>
+        <h2 class="mb-4">Welcome, {{ user.get_username }}!</h2>
+
+        <p class="mb-3">Thank you for using our To-Do list. Here's a summary of your tasks:</p>
+
+        <ul class="list-unstyled">
+          <li class="mb-2">Total tasks: {{ all_tasks_count }}</li>
+          <li class="mb-2">Completed tasks: {{ completed_tasks_count }}</li>
+          <li class="mb-4">Incomplete tasks: {{ incompleted_tasks_count }}</li>
+        </ul>
+
+        <p class="mb-4">
+          Our To-Do list app is designed to help you manage your tasks efficiently. Explore your user
+          profile to view and organize your tasks. Feel free to add, edit, and mark tasks as complete to stay organized.
+        </p>
+
+        <p>
+          If you have any feedback or suggestions, please don't hesitate to reach out. We appreciate your use of
+          our platform and hope it enhances your productivity!
+        </p>
       </div>
     </div>
   </div>

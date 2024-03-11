@@ -16,7 +16,7 @@ class Task(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(null=True, blank=True)
-    done_at = models.DateTimeField()
+    done_at = models.DateTimeField(null=True, blank=True)
     is_completed = models.BooleanField(default=False)
     tags = models.ManyToManyField(Tags, related_name="tasks")
 
@@ -25,3 +25,6 @@ class Task(models.Model):
                 f" Created at: {self.created_at} |"
                 f" Deadline: {self.deadline} |"
                 f" Completed: {self.is_completed}")
+
+    class Meta:
+        ordering = ["-done_at", "-created_at"]
