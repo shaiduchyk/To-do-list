@@ -8,7 +8,7 @@
 
   <h3 class="mb-3">Tasks associated with "{{ tag.name }}" tag:</h3>
 
-  {% if tags.tasks.all %}
+  {% if tag.tasks.all %}
     <ul>
       {% for task in tag.tasks.all %}
         <li>
