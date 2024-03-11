@@ -34,7 +34,7 @@
               {% endif %}
             </td>
             <td class="text-center">
-              {% for tag in task.tags.all %}
+              {% for tag in task.tag.all %}
                 <span class="badge badge-secondary">{{ tag.name }}</span>
               {% endfor %}
             </td>

@@ -6,11 +6,11 @@
     <a href="{% url 'todo:tag-list' %}" class="btn btn-secondary ml-2">Back to Tags</a>
   </div>
 
-  <h3 class="mb-3">Tasks associated with "{{ tags.name }}" tag:</h3>
+  <h3 class="mb-3">Tasks associated with "{{ tag.name }}" tag:</h3>
 
   {% if tags.tasks.all %}
     <ul>
-      {% for task in tags.tasks.all %}
+      {% for task in tag.tasks.all %}
         <li>
           <strong>{{ task.content }}</strong>
           {% if task.deadline %}

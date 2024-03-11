@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import DateInput
 
-from todo.models import Task, Tags
+from todo.models import Task, Tag
 
 
 class TaskCreationForm(forms.ModelForm):
@@ -22,5 +22,5 @@ class TaskCreationForm(forms.ModelForm):
 class TagsCreationForm(forms.ModelForm):
 
     class Meta:
-        model = Tags
+        model = Tag
         fields = ["name"]

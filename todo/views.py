@@ -7,7 +7,7 @@ from django.views import generic
 from django.utils import timezone
 
 from todo.forms import TaskCreationForm, TagsCreationForm
-from todo.models import Task, Tags
+from todo.models import Task, Tag
 
 
 @login_required()
@@ -54,31 +54,31 @@ class TaskUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 
 class TagCreateView(LoginRequiredMixin, generic.CreateView):
-    model = Tags
+    model = Tag
     form_class = TagsCreationForm
     success_url = reverse_lazy("todo:tag-list")
 
 
 class TagListView(LoginRequiredMixin, generic.ListView):
-    model = Tags
+    model = Tag
     context_object_name = "tag_list"
     paginate_by = 7
     template_name = "tags_list.html"
 
 
 class TagUpdateView(LoginRequiredMixin, generic.UpdateView):
-    model = Tags
+    model = Tag
     fields = "__all__"
     success_url = reverse_lazy("todo:tag-list")
 
 
 class TagDeleteView(LoginRequiredMixin, generic.DeleteView):
-    model = Tags
+    model = Tag
     success_url = reverse_lazy("todo:tag-list")
 
 
 class TagDetailView(LoginRequiredMixin, generic.DetailView):
-    model = Tags
+    model = Tag
 
 
 @login_required
