@@ -43,9 +43,9 @@
                   <a href="{% url 'todo:task-update' pk=task.id %}" class="btn btn-warning">Update</a>
                   <a href="{% url 'todo:task-delete' pk=task.id %}" class="btn btn-danger">Delete</a>
                   {% if not task.done_at %}
-                      <a href="{% url 'todo:mark-as-done' task_id=task.id %}" class="btn btn-success">Mark as Done</a>
+                      <a href="{% url 'todo:toggle-mark-done' task_id=task.id %}" class="btn btn-success">Mark as Done</a>
                   {% else %}
-                      <a href="{% url 'todo:undo-mark-as-done' task_id=task.id %}" class="btn btn-info">Undo</a>
+                      <a href="{% url 'todo:toggle-mark-done' task_id=task.id %}" class="btn btn-info">Undo</a>
                   {% endif %}
               {% endif %}
             </td>

@@ -81,25 +81,18 @@ class TagDetailView(LoginRequiredMixin, generic.DetailView):
     model = Tag
 
 
-@login_required
-def mark_as_done(request: HttpRequest, task_id: int) -> HttpResponse:
+def toggle_mark_done(request: HttpRequest, task_id: int) -> HttpResponse:
     task = get_object_or_404(Task, id=task_id)
-    task.is_completed = True
-    task.done_at = timezone.now()
-    task.save()
-    return HttpResponseRedirect(
-        request.META.get(
-            "HTTP_REFERER",
-            reverse_lazy(viewname="todo:tasks"))
-    )
 
+    if task.is_completed:
+        task.is_completed = False
+        task.done_at = None
+    else:
+        task.is_completed = True
+        task.done_at = timezone.now()
 
-@login_required
-def undo_mark_as_done(request: HttpRequest, task_id: int) -> HttpResponse:
-    task = get_object_or_404(Task, id=task_id)
-    task.is_completed = False
-    task.done_at = None
     task.save()
+
     return HttpResponseRedirect(
         request.META.get(
             "HTTP_REFERER",
